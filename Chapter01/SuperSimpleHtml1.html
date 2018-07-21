@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <p>Let's rock the browser,         HTML5 style.</p>
+<hr />
+    <p>Let's rock the <blockquote>browser</blockquote> ,<em> HTML5 </em>style.</p>
+<!-- cite 表明引用来源 -->
+    <blockquote cite="http://en.wikipedia.org/wiki/Winnie-the-Pooh">
+        <p>Did you ever stop to think, and forget to start again?</p>    
+    </blockquote>
+    <p>As A.A. Milne said.
+        <q>Some people talk to animals. Not listen though. That's the problem.</q>
+    </p>
+    <p>
+        <abbr title="Professor">Prof</abbr>
+        Stephen Hawking is a theoretical physicist and cosmologist.
+    </p>
+
+    <p>A <dfn>black hole</dfn></p>
+    <p><s>$455</s></p>
+    <p><del>$455</del></p>
+    <P> <a href="mailto:787569597@qq.com">Email 二木</a></P>
+<!-- 图像的长宽最好用css来设置 -->
+    <img src="火火.jpg" alt="A little bird" title="你好啊" width="100" height="100">
+    <p>There are around 10,000 living species of birds</p>
+    <hr />
+    <p>
+        <img src="火火.jpg" alt="A little bird" title="你好啊" width="100" height="100">
+        There are around 10,000 living species of birds
+    </p>
+    <hr />
+    <p>
+        
+    </p>
+    There are around 10,000 living     
+    <img src="火火.jpg" alt="A little bird" title="你好啊" width="100" height="100">
+    species of birds
+    <hr />
+    <p>
+        <!-- align特性H5不支持 -->
+        <img src="火火.jpg" alt="A little bird" title="你好啊" width="100" height="100" >
+        There are around 10,000 living species of birds
+    </p>
+    <hr />
+    <h4>More Recipes:</h4>
+
+    <p>
+        <img src="火火.jpg" alt="A little bird" title="你好啊" width="100" height="100">
+        <img src="火火.jpg" alt="A little bird" title="你好啊" width="100" height="100" >
+        <img src="火火.jpg" alt="A little bird" title="你好啊" width="100" height="100" >
+    </p>
+
+    <form action="" method="POST">
+        <p>
+            username:
+            <input type="text" name="username" maxlength="3">
+        </p>
+        <p>
+            password:
+            <input type="password" name="password" >
+        </p>
+        <p>
+            What do you think of this gig?
+        </p>
+        <!-- cols 与 rows 为旧版本 cols指定文本域宽度 rows指定文本域纵向占行数 -->
+        <textarea name="comment" cols="20" rows="4">你好</textarea>
+
+        <!-- 单选按钮 -->
+        <p>
+            <!-- 回答这个问题所有的单选按钮其name应该一致， value选项被选中后发送到服务器的值 -->
+            <input type="radio" name="gener" value="rock" checked="checked">rock
+            <input type="radio" name="gener" value="pop" >pop
+            <input type="radio" name="gener" value="jazz" >jazz
+
+        </p>
+
+        <!-- 复选框 -->
+        <p>
+            Please select your facorite music service(s):
+            <br />
+            <input type="checkbox" name="service" value="iTunes" checked="checked">iTunes
+            <input type="checkbox" name="service" value="lastfm" checked="checked">Last.fm
+            <input type="checkbox" name="service" value="iTunes" checked="checked">iTunes
+        </p>
+
+        <!-- 下拉列表框 -->
+        <p>What device do you listen to music on?</p>
+        <select name="devices">
+            <option value="iPod">iPod</option>
+            <option value="radio" selected="selected">radio</option>
+            <option value="iPod">iPod</option>
+        </select>
+
+        <!-- 多选框 -->
+        <p>
+            Do you play any of the following instruments?
+        </p>
+        <!-- PC上多选需要按Crtl键 Mac中多选需要按command键 size是你希望一次显示的选项数量 -->
+        <select name="instruments"  multiple="multiple">
+            <option value="guiter" selected="selected">Guiter</option>
+            <option value="drums" >Drum</option>
+            <option value="keyboard" selected="selected">Keyboard</option>
+            <option value="bass">Bass</option>
+        </select>
+
+        <!-- 上传文件域 -->
+        <p>Upload your song in MP3 format:</p>
+        <input type="file" name="user-song"><br />
+        <input type="submit" value="Upload">
+
+        <!-- 提交按钮 -->
+        <p>Subscrible to our email list:</p>
+        <input type="email" name="email"> 
+        <input type="submit" name="subscribe" value="Subscribe">
+
+        <!-- 图像按钮 -->
+        <p>Subscribe to our email list:</p>
+        <input type="text" name="email">
+        <input type="image" src="火火.jpg" width="100" height="20"
+
+        <!-- 按钮和隐藏控件 -->
+        <button><img src="火火.jpg" alt="add" width="10" height="10">Add</button>
+        <input type="hidden" name="bookmark" value="lyrics">
+
+        <!-- 标签表单控件 -->
+        <label>Age:<input type="text" name="age"></label>
+        <br />
+        Gender:
+        <input id="female" type="radio" name="gender" value="f">
+        <label for="female">Female</label>
+        <input id="male" type="radio" name="gender" value="m">
+        <label for="male">Male</label>
+
+        <label>Gender:
+            <input type="radio" name="gender" value="f">
+            <label>Female</label>
+            <input type="radio" name="gender" value="m">
+            <label>Male</label>
+        </label>
+
+        <!-- 组合表单元素 -->
+        <fieldset>
+            <legend>Contact details</legend>
+            <label>Email:<br />
+                <input type="text" name="email"></label><br />
+            <label>Mobile:<br />
+                <input type="text" name="mobile"></label><br />
+            <label>Telephone:<br />
+                <input type="text" name="telephone"></label><br />
+        </fieldset>
+
+        <!-- 表单验证 H5引入了验证机制并交由浏览器完成  IE6不兼容-->
+        <label for="username">Username:</label>
+        <input type="text" name="username" required="required"></title><br />
+        <label for="password">Password:</label>
+        <input type="password" name="password" required="required">
+        <input type="submit" value="Submit">
+
+        <!-- 日期控件 -->
+        <label for="username">Departure date:</label>
+        <input type="date" name="depart">
+        <input type="submit" value="Submit">
+
+        <!-- 电子邮件和url输入 input控件  type="email" type="url"-->
+        <p>Please enter your email address:</p>
+        <input type="email" name="email">
+        <!-- submit中的value用于提交按钮上显示内容 -->
+        <input type="submit" value="Submit">
+
+        <p>Please enter your website address:</p>
+        <input type="url" name="website">
+        <input type="submit" value="Submit">
+
+        <!-- 搜索输入控件 input type="search" -->
+        <p>Search:</p>
+        <!-- placeholder -->
+        <input type="search" name="search" placeholder="搜索">
+        <input type="submit" value="Search">
+    </form>
+
+</body>
+</html>
