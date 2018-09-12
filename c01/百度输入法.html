@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        body,ul,li,button {margin: 0; padding: 0; font: 12px/1.5 Tahoma;}
+        button {margin: 10px 0;cursor: pointer;}
+        ul {list-style-type: none;}
+        #outer {width: 70px; margin: 10px auto;}
+        #tab {margin-top:5px;background: #fff; border: 1px solid blue;display: none; cursor: pointer;}
+        #tab li {width: 100%;line-height: 24px;display: inline-block;vertical-align: top;}
+        #close {border-top: 1px solid blue;}
+        #tab li a {color: #00c;padding:0 5px; display: block;text-decoration: none;}
+        #tab li a:hover {background: #d9e1f6;}
+    </style>
+    <script>
+      window.onload = function ()
+      {
+          var oBtn = document.getElementsByTagName("button")[0];
+          var oTab = document.getElementById("tab");
+          var oClose = document.getElementById("close");
+          var style = oTab.style;
+          oBtn.onclick = function ()
+          {
+             style.display = style.display == "block" ? "none" : "block";       
+          };
+          oClose.onclick = function ()
+          {
+              style.display = "none";
+          }
+      };
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <button>输入法</button>
+        <ul id="tab"> 
+            <li><a href="">手写</a></li>
+            <li><a href="">拼英</a></li>
+            <li id="close"><a href="">关闭</a></li>
+        </ul>
+    </div>
+   
+</body>
+</html>

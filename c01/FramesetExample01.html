@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- <frameset row="160, *">
+    <frame src="frame.html" name="topFrame"></frame>
+    <frameset row="50%, 50%">
+        <frame src="anotherframe.html" name="leftFrame"></frame>
+        <frame src="yetanotherframe.html" name="rightFrame"></frame>
+    </frameset>
+</frameset> -->
+<script>
+    var pageWidth = window.innerWidth,
+        pageHeight = window.innerHeight;
+    
+    if (typeof pageWidth != "number")
+    {
+        if (document.compatMode == "CSS1Compat")
+        {
+            pageWidth = document.documentElement.clientWidth;
+            pageHeight = document.documentElement.clientHeight;
+        }
+        else
+        {
+            pageWidth = document.body.clientWidth;
+            pageHeight = document.body.clientHeight;
+        }
+    }
+    // alert(pageWidth);
+    // alert(pageHeight);
+    window.resizeTo(1000 , 500);
+    var baiduWin = window.open("http://www.baidu.com","baiduWindow","height=400,width=400,top=10,left-10,resizable=yes");
+    // baiduWin.opener = null;
+    baiduWin.resizeTo(1000,700);
+    baiduWin.moveTo(100,100);
+    baiduWin.close;
+    alert(baiduWin.opener == window);
+    // 设置超时调用
+    var timeoutId = setTimeout(function(){
+        alert("Hello world");
+    },1000);
+    // baiduWin.close();
+    // 注意：取消超市调用
+    clearTimeout(timeoutId);
+</script>
+<body>
+    
+</body>
+</html>
