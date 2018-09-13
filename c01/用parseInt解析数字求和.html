@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        body{text-align: center;font: 12px Tahoma;margin: 10px;}
+        
+        input{
+            width: 50px;
+            padding: 3px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        span{margin: 0 5px;}
+        button {width: 50px;}
+    </style>
+    <script>
+        window.onload = function ()
+        {
+            var oInput = document.getElementsByTagName("input");
+            var oSpan = document.getElementsByTagName("span")[2];
+            var oBtn = document.getElementsByTagName("button")[0];
+            var sum = 0;
+            for(var i = 0; i<oInput.length; i++)
+            {
+                oInput[i].onkeyup = function ()
+                {
+                    this.value = this.value.replace(/[^\d]/,"");
+                }
+               
+            }
+            oBtn.onclick = function ()
+            {
+                (oInput[0].value == "" || oInput[1].value == "") ? alert("请输入数字！") :
+		        oSpan.innerHTML = parseInt(oInput[0].value) + parseInt(oInput[1].value);
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    
+        <input type="text">
+        <span><strong>+</strong></span>
+        <input type="text">
+        <span><strong>=</strong></span>
+        <span><strong>?</strong></span>
+        <button>求和</button>
+    
+   
+</body>
+</html>
