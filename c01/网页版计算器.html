@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网页计算器</title>
+    <style>
+        body,p,input,ul,li,a {margin: 0; padding: 0;}
+        body {font: 12px/1.5 Tahoma;}
+        #cal {
+            position: relative;
+            margin: 10px auto;
+            overflow: hidden;
+            zoom: 1;
+            width: 300px;
+        }
+        #cal p {
+            font: inherit;
+            color: #fff;
+            background: #000;
+            text-align: right;
+            padding: 3px;
+        }
+
+        #cal input {
+            text-align: right;
+            width: 290px;
+            border: none;
+            padding: 5px;
+        }
+        #cal input.formula{
+            height: 14px;
+            background: green;
+        }
+        #cal input.f-text {
+            height: 60px;
+            background:yellow;
+
+        }
+        #cal ul, li {list-style-type: none;}
+        #cal ul {
+            position: relative;
+           padding: 5px;
+            background: #000;
+            overflow: hidden;
+        }
+        #cal ul li {
+            width: 60px;
+            height: 40px;
+            margin: 10px 5px;
+            float: left;
+            
+            
+            
+        }
+        #cal ul li a{
+            width: 60px;
+            height: 40px;
+            color: #fff;
+            background: grey;
+            line-height: 40px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            font-family: inherit;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+        #cal ul li.sty-1 a{
+            background: coral;
+        }
+        #cal ul li.sty-2 {
+            position: absolute;
+            height: 100px;
+            top: 174px;
+            right: 0;
+        }
+        #cal ul li.sty-2 a{
+            height: 100px;
+            line-height: 100px;
+        }
+        #cal ul li.sty-2 {
+            width: 130px;
+        }
+       #cal ul li a:hover{opacity: 0.5; filter: alpha(opacity=50);}
+    </style>
+    <script>
+        window.onload =function ()
+        {
+            var oCal = document.getElementById("cal");
+            var aInput = oCal.getElementsByTagName("input");
+            var aA = oCal.getElementsByTagName("a");
+            var s = false;
+            for(var i = 0; i <aA.length; i++)
+            {
+                aA[i].onfocus = function ()
+		        {
+			        this.blur()	
+		        };
+
+                aA[i].onclick = function ()
+                {
+                    switch(this.innerHTML)
+                    {
+                        case "c":
+                            aInput[1].value = 0;
+                            aInput[0].value = ""; 
+                            break;
+                        case "%":
+                            count("%");
+                            break;
+                        case "÷":
+                            count("÷");
+                            break;
+                        case "x":
+                            count("x");
+                            break;
+                        case "-":
+                            count("-");
+                            break;
+                        case "+":
+                            count("+");
+                            break;
+                        case "=":
+                            s || (aInput[0].value += aInput[1].value);
+                            aInput[1].value = eval(aInput[0].value.replace(/\%\/\*\-\+/,''));
+                            aInput[1].value = aInput[1].value.substr(0, 10).replace("NaN", 0);
+                            s = true;
+                            break;
+                        case ".":
+                            if (aInput[1].value.search(/[\.\%\/\*\-\+]/) != -1);
+                            break;
+                        default:
+                            s&& (aInput[1].value = 0, aInput[0].value = "", s = false);
+                            aInput[1].value.length < 10 && (aInput[1].value = (aInput[1].value + this.innerHTML).replace(/^[0\%\/\*\-\+](\d)/,"$1"));
+
+                    }
+                }
+            }
+            function count(a)
+            {
+                if(s)
+                {
+                    aInput[0].value = aInput[1].value + a;
+                    aInput[1].value = a;
+                    s = false;
+                }
+                else
+                {
+                    /[\%\/\*\-\+]$/.test(aInput[1].value) || (aInput[0].value +=aInput.value);
+                    aInput[1].value = a;
+                    /[\%\/*\-\+]$/.test(aInput[0].value) || (aInput[0].value += aInput[1].value);
+                    aInput[0].value = aInput[0].value.slice(-1) != a? aInput[0].value.replace(/.$/ ,a) :aInput[0].value;
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div id="cal">
+        <p>By - Ferris QQ:21314130</p>
+        <div>
+            <input type="text" class="formula" readonly="readonly">
+            <input type="text" class="f-text" readonly="readonly" value="0">
+        </div>
+        <ul>
+            <li class="sty-1"><a href="">c</a></li>
+            <li class="sty-1"><a href="">%</a></li>
+            <li class="sty-1"><a href="">÷</a></li>
+            <li class="sty-1"><a href="">x</a></li>
+            <li><a href="">7</a></li>
+            <li><a href="">8</a></li>
+            <li><a href="">9</a></li>
+            <li class="sty-1"><a href="">-</a></li>
+            <li><a href="">4</a></li>
+            <li><a href="">5</a></li>
+            <li><a href="">6</a></li>
+            <li class="sty-1"><a href="">+</a></li>
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+            <li id="sty-2"><a href="">=</a></li>
+            <li id="sty-3"><a href="">0</a></li>
+            <li><a href="">.</a></li>
+            
+            
+        </ul>
+    </div>
+</body>
+</html>

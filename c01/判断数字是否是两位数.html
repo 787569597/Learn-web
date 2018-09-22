@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {font: 12px/1.5 arial;}
+        input {width: 50px;background: #f0f0f0;border: 1px solid #ccc; padding: 3px;margin-right: 10px; font-family: inherit;}
+    </style>
+    <script>
+       window.onload = function () 
+       {
+           var oInput = document.getElementsByTagName("input")[0];
+           var oBtn = document.getElementsByTagName("button")[0];
+           oInput.onkeyup = function ()
+           {
+               this.value = this.value.replace(/[^\d]/,"");
+           }
+           oBtn.onclick = function ()
+           {
+            //    if (oInput.value == "") {alert("请输入数字");}
+            //    else if (/^\d{2}$/.test(parseInt(oInput.value))) {alert("√ 是两位数");}
+            //    else {alert("这是" + aInput[0].value.length + "位数");}
+            (oInput.value == "") ?
+		alert("请输入数字！") :
+		alert(/^\d{2}$/.test(parseInt(oInput.value)) ? "√ 是两位数" : "这是" + oInput.value.length + "位数");
+
+           }
+       }
+    </script>
+</head>
+<body>
+    <center>
+        <input type="text" /> 
+        <button>是否为两位数</button>
+    </center>
+</body>
+</html>
